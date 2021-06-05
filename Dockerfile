@@ -4,6 +4,7 @@ RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 WORKDIR /flashcards
 COPY Gemfile /flashcards/Gemfile
 COPY Gemfile.lock /flashcards/Gemfile.lock
+RUN gem install bundler
 RUN bundle install
 COPY . /flashcards/
 
