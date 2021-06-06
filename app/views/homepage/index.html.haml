@@ -4,4 +4,4 @@
       %h1.py-5.h1.lh-base.fw-bold= t("index.heading.main")
       %p.d-inline-block.align-middle.py-2.pe-5.h2.lh-lg.border-3.border-dark.border-top= t("index.heading.sub")
     .col-md-6
-      %img{:src => asset_path("hero.jpg"), :alt => t("index.hero_img_alt"), :loading => "eager", :width => "800"}/
+      = image_tag "hero.jpg", alt: t("index.hero_img_alt"), loading: "eager", width: "800"
