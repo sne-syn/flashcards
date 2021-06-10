@@ -1,13 +1,12 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const flipCards = document.querySelectorAll('.flip-container');
-
-  flipCards.forEach(card => {
-    const flipBtn = card.querySelectorAll('.flip-btn');
+document.addEventListener("turbolinks:load", function () {
+  const flipBtn = document.querySelectorAll('.flip-btn');
+  
+  if (flipBtn.length > 0) {
     flipBtn.forEach(btn => {
+      const flipper = btn.closest('.flipper');
       btn.addEventListener('click', () => {
-        card.querySelector('.flipper').classList.toggle('flip');
+        flipper.classList.toggle('flip');
       })
     })
-
-  })
+  }
 })

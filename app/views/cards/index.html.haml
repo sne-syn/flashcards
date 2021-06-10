@@ -4,13 +4,13 @@
     - @cards.each do |card|
       %li.col-6.col-lg-4.pb-5
         .flip-container
-          .flipper.text-center.py-0
-            .flip-front.border-top.border-bottom.border-end.rounded
+          .flipper.text-center.py-0.jsFlipper
+            .flip-front.border-top.border-bottom.border-end.rounded.shadow-sm
               %h2.card-title.p-2.py-5= card.original_text
-              %button.flip-btn.rounded.mb-3
+              %button.flip-btn.rounded.mb-3.jsFlipBtn
                 %span.visually-hidden Flip
               %p.text-secondary.fw-lighter.fst-italic= card.review_date.strftime("%d/%m/%Y")
-            .flip-back.border-top.border-bottom.border-start.rounded
+            .flip-back.border-top.border-bottom.border-start.rounded.shadow-sm
               %p.h2.card-title.p-2.py-5= card.translated_text
-              %button.flip-btn.rounded
+              %button.flip-btn.rounded.jsFlipBtn
                 %span.visually-hidden Back
