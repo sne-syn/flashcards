@@ -1,12 +1,12 @@
-document.addEventListener("turbolinks:load", function () {
+document.addEventListener('turbolinks:load', function () {
   const flipBtn = document.querySelectorAll('.flip-btn');
   
   if (flipBtn.length > 0) {
-    flipBtn.forEach(btn => {
+    flipBtn.forEach(function (btn) {
       const flipper = btn.closest('.flipper');
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', function () {
         flipper.classList.toggle('flip');
-      })
+      });
     })
   }
 })
