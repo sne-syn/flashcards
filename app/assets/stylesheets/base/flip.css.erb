@@ -1,0 +1,58 @@
+:root {
+  --clr-bianca: #FBFAF2;
+  --clr-cobalt: #094CB1;
+  --clr-cobalt-opacity: rgba(9,76,177,0.6);
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+.flip-container, 
+.flip-front, 
+.flip-back {
+  width: 100%;
+  min-height: 250px;
+}
+
+.flipper {
+  transition: 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flip-front, 
+.flip-back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--clr-bianca);
+}
+
+.flip-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+  border-left: 5px solid var(--clr-cobalt-opacity);
+}
+
+.flip-back {
+  transform: rotateY(160deg);
+  border-right: 5px solid var(--clr-cobalt-opacity);
+}
+
+.flip-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: var(--clr-cobalt);
+  border-color: var(--clr-cobalt);
+  background-image: url(<%= asset_path 'cards/turn_icon.svg' %>);
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+}
+
+.background-card {
+  background-color: #FBFAF2;
+}

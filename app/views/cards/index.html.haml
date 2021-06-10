@@ -3,9 +3,14 @@
   %ul.row.justify-content-between
     - @cards.each do |card|
       %li.col-6.col-lg-4.pb-5
-        .card
-          .card-body.text-center.py-0.border-start.border-5.border-success.rounded.shadow-sm.background-card
-            %h2.card-title.p-2.py-5.pb-3= card.original_text
-            %hr.text-dark
-            %p.card-text.p-2.py-3.pt-5.fs-5= card.translated_text
-            %p.text-secondary.fw-lighter.fst-italic= card.review_date.strftime("%d/%m/%Y")
+        .flip-container
+          .flipper.text-center.py-0
+            .flip-front.border-top.border-bottom.border-end.rounded
+              %h2.card-title.p-2.py-5= card.original_text
+              %button.flip-btn.rounded.mb-3
+                %span.visually-hidden Flip
+              %p.text-secondary.fw-lighter.fst-italic= card.review_date.strftime("%d/%m/%Y")
+            .flip-back.border-top.border-bottom.border-start.rounded
+              %p.h2.card-title.p-2.py-5= card.translated_text
+              %button.flip-btn.rounded
+                %span.visually-hidden Back
