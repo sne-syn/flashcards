@@ -4,8 +4,8 @@
     - @cards.each do |card|
       %li.col-6.col-lg-4.pb-5
         .card
-          .card-body.text-center.py-0.border-start.border-5.border-primary.rounded.shadow-sm.background-card
+          .card-body.text-center.py-0.border-start.border-5.border-success.rounded.shadow-sm.background-card
             %h2.card-title.p-2.py-5.pb-3= card.original_text
-            %hr.text-success
+            %hr.text-dark
             %p.card-text.p-2.py-3.pt-5.fs-5= card.translated_text
             %p.text-secondary.fw-lighter.fst-italic= card.review_date.strftime("%d/%m/%Y")
