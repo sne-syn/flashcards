@@ -2,10 +2,10 @@
 
 (function () {
   document.addEventListener('turbolinks:load', function () {
-    var flipBtn = document.querySelectorAll('.flip-btn');
+    var flipButtons = document.querySelectorAll('.flip-btn');
 
-    if (flipBtn.length > 0) {
-      flipBtn.forEach(function (btn) {
+    if (flipButtons.length > 0) {
+      flipButtons.forEach(function (btn) {
         var flipper = btn.closest('.flipper');
         btn.addEventListener('click', function () {
           flipper.classList.toggle('flip');
