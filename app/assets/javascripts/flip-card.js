@@ -7,6 +7,6 @@ document.addEventListener('turbolinks:load', function () {
       btn.addEventListener('click', () => {
         flipper.classList.toggle('flip');
       });
-    })
-  };
+    });
+  }
 });
