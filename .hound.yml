@@ -1,0 +1,8 @@
+haml:
+  config_file: .haml-lint.yml
+
+rubocop:
+  enabled: false
+
+jshint:
+  config_file: .jshintrc
