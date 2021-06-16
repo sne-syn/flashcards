@@ -8,7 +8,7 @@
         %ul.row.justify-content-around.m-auto.p-0
           %li{ class: "col-md-5 h-100 mb-2 mb-md-0 #{add_active_class('/cards')}" }
             = link_to t("header.card_menu.view_all"), disable_link_to_current_page('/cards'), class: "text-decoration-none text-white h-100 w-100 bg-gradient btn btn-primary"
-          %li.col-md-6.h-100.ms-auto
+          %li{ class: "col-md-6 h-100 ms-auto #{add_active_class('/cards/new')}" }
             = link_to "cards/new", class: "h-100 w-100 ps-3 text-decoration-none text-white btn btn-success bg-gradient" do
               = image_tag "shared/plus_sign.svg", class: "d-inline-block align-middle", alt: "", role: "presentation"
               %p.d-inline-block.align-middle.mb-0.ps-1= t("header.card_menu.add")

@@ -2,7 +2,11 @@
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
   .form-inputs
-    = f.input :original_text
-    = f.input :translated_text
+    .mb-3
+      = f.label :original_text, t('new_card.original_text_label'), {class: "pb-2"}
+      = f.input :original_text, label: false
+    .mb-3
+      = f.label :translated_text, t('new_card.translated_text_label'), {class: "pb-2"}
+      = f.input :translated_text, label: false
   .form-actions
-    = f.button :submit
+    = f.button :submit, t('new_card.create_card_btn'), {class: "btn btn-success"}

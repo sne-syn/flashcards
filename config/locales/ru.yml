@@ -15,3 +15,10 @@ ru:
   cards:
     heading: 'Все карточки'
     flip_btn: 'Перевернуть карточку'
+
+  new_card:
+    heading: 'Добавить новую карточку'
+    original_text_label: 'Слово для изучения:'
+    translated_text_label: 'Перевод:'
+    create_card_btn: 'Сохранить'
+

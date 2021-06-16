@@ -11,7 +11,7 @@ class CardsController < ApplicationController
     @card = Card.new(card_params)
 
     if @card.save
-      redirect_to @card
+      redirect_to @cards
     else
       render :new
     end
