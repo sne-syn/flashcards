@@ -1,16 +1,24 @@
 %section.container
-  %h1.py-5.h1.lh-base.fw-bold.text-center= t("cards.heading")
-  %ul.row
+  %h1.py-5.h1.lh-base.fw-bold.text-center= t('cards.heading')
+  %ul.row.m-0.p-0
     - @cards.each do |card|
       %li.col-6.col-lg-4.pb-5
         .flip-container
           .flipper.text-center.py-0.jsFlipper
-            .flip-front.border-top.border-bottom.border-end.rounded.shadow-sm
+            .flip-front.border-top.border-bottom.border-end.rounded.shadow-sm.p-2
+              %ul.d-flex.justify-content-end.m-0.p-0
+                %li.me-2
+                  = link_to edit_card_path(card), class: "bg-icon-edit" do
+                    %p.visually-hidden= t('cards.edit_btn')
+                %li
+                  = link_to card_path(card), method: :delete, data: { confirm: t('cards.confirm_delete') }, class: "bg-icon-delete" do 
+                    %p.visually-hidden= t('cards.delete_btn')
               %h2.card-title.p-2.py-5= card.original_text
               %button.flip-btn.rounded.mb-3.jsFlipBtn
-                %span.visually-hidden= t("cards.flip_btn")
+                %span.visually-hidden= t('cards.flip_btn')
               %p.text-secondary.fw-lighter.fst-italic= card.review_date.strftime("%d/%m/%Y")
-            .flip-back.border-top.border-bottom.border-start.rounded.shadow-sm
+            .flip-back.border-top.border-bottom.border-start.rounded.shadow-sm.p-2
+              .u-spacer-30
               %p.h2.card-title.p-2.py-5= card.translated_text
               %button.flip-btn.rounded.jsFlipBtn
-                %span.visually-hidden= t("cards.flip_btn")
+                %span.visually-hidden= t('cards.flip_btn')

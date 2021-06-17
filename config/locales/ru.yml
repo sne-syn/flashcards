@@ -15,9 +15,17 @@ ru:
   cards:
     heading: 'Все карточки'
     flip_btn: 'Перевернуть карточку'
+    edit_btn: 'Редактировать карточку'
+    delete_btn: 'Удалить карточку'
+    confirm_delete: 'Удалить карточку'
 
   new_card:
     heading: 'Добавить новую карточку'
+
+  edit_card:
+    heading: 'Редактировать карточку'
+
+  form:  
     original_text_label: 'Слово для изучения:'
     translated_text_label: 'Перевод:'
     create_card_btn: 'Сохранить'

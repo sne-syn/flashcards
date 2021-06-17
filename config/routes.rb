@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root 'homepage#index'
 
-  resources :cards
+  resources :cards, only: [:index, :new, :create, :edit, :update, :destroy]
 end
