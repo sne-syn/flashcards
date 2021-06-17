@@ -18,14 +18,11 @@ RSpec.describe Card, type: :model do
       expect(card.save).to eq(false)
     end
 
-    it 'review_date can be nil' do
-      card.review_date = nil
-      expect(card.save).to eq(true)
+    it 'ensures translated text isn\'t equal original text' do
+      card.translated_text = 'hello'
+      card.original_text = 'hello'
+      expect(card.save).to eq(false)
     end
 
-    it 'review_date can be blank' do
-      card.review_date = ''
-      expect(card.save).to eq(true)
-    end
   end
 end
