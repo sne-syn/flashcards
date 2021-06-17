@@ -17,7 +17,7 @@ ru:
     flip_btn: 'Перевернуть карточку'
     edit_btn: 'Редактировать карточку'
     delete_btn: 'Удалить карточку'
-    confirm_delete: 'Удалить карточку'
+    confirm_delete: 'Удалить карточку?'
 
   new_card:
     heading: 'Добавить новую карточку'
@@ -29,4 +29,22 @@ ru:
     original_text_label: 'Слово для изучения:'
     translated_text_label: 'Перевод:'
     create_card_btn: 'Сохранить'
+    cancel_btn: 'Отменить'
 
+  activerecord:
+    attributes:
+      card:
+        original_text: "Поле "
+        translated_text: "Перевод "
+    errors:
+      models:
+        card:
+          attributes:
+            original_text:
+              blank: "не должно быть пустым"
+            translated_text:
+              blank: "не должен быть пустым"
+
+  simple_form:
+    error_notification:
+      default_message: "Хьюстон, у нас проблема:"
