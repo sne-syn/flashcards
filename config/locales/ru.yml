@@ -30,21 +30,27 @@ ru:
     translated_text_label: 'Перевод:'
     create_card_btn: 'Сохранить'
     cancel_btn: 'Отменить'
+    equal_values_error_message: 'не должен повторять слово для изучения'
+
+  flash:
+    success_create_message: 'Карточка была успешно добавлена в коллекцию'
+    success_update_message: 'Карточка была обновлена'
+    success_delete_message: 'Карточка была успешно удалена'
 
   activerecord:
     attributes:
       card:
-        original_text: "Поле "
-        translated_text: "Перевод "
+        original_text: 'Поле '
+        translated_text: 'Перевод '
     errors:
       models:
         card:
           attributes:
             original_text:
-              blank: "не должно быть пустым"
+              blank: 'не должно быть пустым'
             translated_text:
-              blank: "не должен быть пустым"
+              blank: 'не должен быть пустым'     
 
   simple_form:
     error_notification:
-      default_message: "Хьюстон, у нас проблема:"
+      default_message: 'Хьюстон, у нас проблема:'

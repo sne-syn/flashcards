@@ -1,4 +1,6 @@
 class CardsController < ApplicationController
+  before_action :set_card, only: [:edit, :update, :destroy]
+
   def index
     @cards = Card.all
   end
@@ -8,38 +10,39 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = Card.create(card_params)
+    calculated_review_date = ReviewDateService.call(Time.now)
+    @card = Card.create(card_params.merge(review_date: calculated_review_date))
 
     if @card.errors.empty?
-      redirect_to cards_path
+      redirect_to cards_path, notice: t('flash.success_create_message')
     else
       render :new
     end
   end
 
   def edit
-    @card = Card.find(params[:id])
   end
 
   def update
-    @card = Card.find(params[:id])
-
     if @card.update(card_params)
-      redirect_to cards_path
+      redirect_to cards_path, notice: t('flash.success_update_message')
     else
       render :edit
     end
   end
 
   def destroy
-    @card = Card.find(params[:id])
     @card.destroy
 
-    redirect_to cards_path
+    redirect_to cards_path, notice: t('flash.success_delete_message')
   end
 
   private
+    def set_card
+      @card = Card.find(params[:id])
+    end
+
     def card_params
-      params.require(:card).permit(:original_text, :translated_text)
+      params.require(:card).permit(:original_text, :translated_text, :review_date)
     end
 end

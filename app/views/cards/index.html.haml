@@ -1,4 +1,7 @@
 %section.container
+  - flash.each do |_type, msg|
+    .alert.alert-info
+      = msg
   %h1.py-5.h1.lh-base.fw-bold.text-center= t('cards.heading')
   %ul.row.m-0.p-0
     - @cards.each do |card|
@@ -16,7 +19,7 @@
               %h2.card-title.p-2.py-5= card.original_text
               %button.flip-btn.rounded.mb-3.jsFlipBtn
                 %span.visually-hidden= t('cards.flip_btn')
-              %p.text-secondary.fw-lighter.fst-italic= card.review_date.strftime("%d/%m/%Y")
+              %p.text-secondary.fw-lighter.fst-italic= card.review_date.strftime('%d/%m/%Y')
             .flip-back.border-top.border-bottom.border-start.rounded.shadow-sm.p-2
               .u-spacer-30
               %p.h2.card-title.p-2.py-5= card.translated_text

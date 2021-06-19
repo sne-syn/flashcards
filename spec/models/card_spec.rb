@@ -5,6 +5,24 @@ RSpec.describe Card, type: :model do
   it { is_expected.to respond_to(:translated_text) }
   it { is_expected.to respond_to(:review_date) }
 
+  context 'CRUD tests' do
+    let (:card) { build(:card) }
+
+    it 'checks that a card can be created' do
+      expect(card).to be_valid
+    end
+
+    it 'checks that a card can be updated' do
+      card.update(:translated_text => 'превзойти')
+      expect(Card.find_by_translated_text('превзойти')).to eq(card)
+    end
+
+    it 'checks that a card can be destroyed' do
+      card.destroy
+      expect(Card.find_by_translated_text('превзойти')).to be_nil
+    end
+  end
+
   context 'validation tests' do
     let (:card) { build(:card) }
 

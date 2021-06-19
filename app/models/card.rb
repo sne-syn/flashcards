@@ -1,11 +1,9 @@
 class Card < ApplicationRecord
-  before_save :set_review_date 
-
-  validates :original_text, presence: true
-  validates :translated_text, presence: true, exclusion: { in: lambda{ |card| [card.original_text] }, message: 'не должен повторять слово для изучения'}
+  validates :original_text, :translated_text, :review_date, presence: true
+  validate  :check_values_not_equal
 
   protected
-  def set_review_date 
-    self.review_date = Time.now + 3.days
+  def check_values_not_equal
+    errors.add(:translated_text, I18n.t('form.equal_values_error_message')) if original_text.try(:downcase) == translated_text.try(:downcase)
   end
 end
