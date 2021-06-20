@@ -1,7 +1,7 @@
 %head
-  %title Флэшкарточкер
+  %title= t('header.app_name')
   = csrf_meta_tags
   = csp_meta_tag
-  %meta{ content: "width=device-width, initial-scale=1", name: "viewport" }/
+  %meta{ content: 'width=device-width, initial-scale=1', name: 'viewport' }/
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'

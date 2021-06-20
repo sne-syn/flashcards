@@ -15,3 +15,42 @@ ru:
   cards:
     heading: 'Все карточки'
     flip_btn: 'Перевернуть карточку'
+    edit_btn: 'Редактировать карточку'
+    delete_btn: 'Удалить карточку'
+    confirm_delete: 'Удалить карточку?'
+
+  new_card:
+    heading: 'Добавить новую карточку'
+
+  edit_card:
+    heading: 'Редактировать карточку'
+
+  form:  
+    original_text_label: 'Слово для изучения:'
+    translated_text_label: 'Перевод:'
+    create_card_btn: 'Сохранить'
+    cancel_btn: 'Отменить'
+    equal_values_error_message: 'не должен повторять слово для изучения'
+
+  flash:
+    success_create_message: 'Карточка была успешно добавлена в коллекцию'
+    success_update_message: 'Карточка была обновлена'
+    success_delete_message: 'Карточка была успешно удалена'
+
+  activerecord:
+    attributes:
+      card:
+        original_text: 'Поле '
+        translated_text: 'Перевод '
+    errors:
+      models:
+        card:
+          attributes:
+            original_text:
+              blank: 'не должно быть пустым'
+            translated_text:
+              blank: 'не должен быть пустым'     
+
+  simple_form:
+    error_notification:
+      default_message: 'Хьюстон, у нас проблема:'

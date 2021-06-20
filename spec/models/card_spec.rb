@@ -5,6 +5,24 @@ RSpec.describe Card, type: :model do
   it { is_expected.to respond_to(:translated_text) }
   it { is_expected.to respond_to(:review_date) }
 
+  context 'CRUD tests' do
+    let (:card) { build(:card) }
+
+    it 'checks that a card can be created' do
+      expect(card).to be_valid
+    end
+
+    it 'checks that a card can be updated' do
+      card.update(:translated_text => 'превзойти')
+      expect(Card.find_by_translated_text('превзойти')).to eq(card)
+    end
+
+    it 'checks that a card can be destroyed' do
+      card.destroy
+      expect(Card.find_by_translated_text('превзойти')).to be_nil
+    end
+  end
+
   context 'validation tests' do
     let (:card) { build(:card) }
 
@@ -18,14 +36,11 @@ RSpec.describe Card, type: :model do
       expect(card.save).to eq(false)
     end
 
-    it 'review_date can be nil' do
-      card.review_date = nil
-      expect(card.save).to eq(true)
+    it 'ensures translated text isn\'t equal original text' do
+      card.translated_text = 'hello'
+      card.original_text = 'hello'
+      expect(card.save).to eq(false)
     end
 
-    it 'review_date can be blank' do
-      card.review_date = ''
-      expect(card.save).to eq(true)
-    end
   end
 end

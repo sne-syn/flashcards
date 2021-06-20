@@ -1,18 +1,18 @@
 :root {
   --clr-bianca: #FBFAF2;
   --clr-cobalt: #094CB1;
-  --clr-cobalt-opacity: rgba(9,76,177,0.6);
+  --clr-cobalt-opacity: rgba(9, 76, 177, 0.6);
 }
 
 .flip {
   transform: rotateY(180deg);
 }
 
-.flip-container, 
-.flip-front, 
+.flip-container,
+.flip-front,
 .flip-back {
   width: 100%;
-  min-height: 250px;
+  min-height: 300px;
 }
 
 .flipper {
@@ -21,7 +21,7 @@
   position: relative;
 }
 
-.flip-front, 
+.flip-front,
 .flip-back {
   backface-visibility: hidden;
   position: absolute;
@@ -51,6 +51,32 @@
   background-repeat: no-repeat;
   background-size: 60%;
   background-position: center;
+}
+
+.bg-icon-edit,
+.bg-icon-delete {
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+}
+
+.flip-btn::focus,
+.bg-icon-edit::focus,
+.bg-icon-delete::focus {
+  outline: 2px solid var(--clr-cobalt);
+  outline-offset: 4px;
+}
+
+.bg-icon-edit {
+  background-image: url(<%= asset_path 'cards/edit_icon.svg' %>);
+}
+
+.bg-icon-delete {
+  background-image: url(<%= asset_path 'cards/delete_icon.svg' %>);
 }
 
 .background-card {
