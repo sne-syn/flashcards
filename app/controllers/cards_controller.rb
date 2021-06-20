@@ -10,8 +10,7 @@ class CardsController < ApplicationController
   end
 
   def create
-    calculated_review_date = ReviewDateService.call(Time.now)
-    @card = Card.create(card_params.merge(review_date: calculated_review_date))
+    @card = CreateCardService.call(card_params)
 
     if @card.errors.empty?
       redirect_to cards_path, notice: t('flash.success_create_message')
