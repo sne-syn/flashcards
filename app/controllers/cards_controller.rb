@@ -11,7 +11,6 @@ class CardsController < ApplicationController
 
   def create
     @card = CreateCardService.call(card_params)
-    p card_params
 
     if @card.errors.empty?
       redirect_to cards_path, notice: t('flash.success_create_message')

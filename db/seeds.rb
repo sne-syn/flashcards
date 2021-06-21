@@ -1,29 +1,15 @@
-require 'nokogiri'
-require 'open-uri'
+require 'csv'
 
-class Scraper
-  def scrape_wordlist
-    studynow_url = 'https://studynow.ru/dicta/allwords'
-    html = open(studynow_url)
-    doc = Nokogiri::HTML(html)
-    data_node_set = doc.css('#wordlist').css('tr')
-    cards = []
+csv_text = File.read('lib/seeds/scraped_cards_data.csv')
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+cards = []
 
-    data_node_set.each do |node|
-      original_text = node.css('td[2]').text
-      translated_text = node.css('td[3]').text
-      card = {
-        original_text: original_text,
-        translated_text: translated_text
-      }
-
-      cards << card
-    end
-
-    cards
-    puts (cards)
-  end
+csv.each do |row|
+  cards << row.to_hash
 end
 
-scrape = Scraper.new
-scrape.scrape_wordlist
+Card.destroy_all
+
+cards.each do |card|
+  CreateCardService.call(card)
+end
