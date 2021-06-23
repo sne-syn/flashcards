@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CardsController, :type => :controller do
-  let (:card) { build(:card) }
+  
   describe 'GET index' do
     it 'has a 200 status code' do
       get :index
