@@ -34,10 +34,12 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 VCR.configure do |config|
+  vcr_mode = :once
   config.cassette_library_dir = "spec/support/vcr_cassettes"
   config.hook_into :webmock
   config.ignore_localhost = true
   config.configure_rspec_metadata!
+  config.default_cassette_options = { re_record_interval: (3600 * (24 * 30)) }
 end
 
 RSpec.configure do |config|
